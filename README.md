@@ -1,9 +1,10 @@
-# ▄▀█ █▀█ █▀▀ ▀▄▀
-# █▀█ █▀▀ ██▄ █░█
-#
+```text
+ ▄▀█ █▀█ █▀▀ ▀▄▀
+ █▀█ █▀▀ ██▄ █░█
+```
+
 # A P E X  // Advanced Web Application Security Scanner
-# [Version: 2.1.0-alpha] // [Status: WEAPONIZED]
-# -------------------------------------------------------------
+### [Version: 2.1.0-alpha] // [Status: WEAPONIZED]
 
 ![Apex Core](https://img.shields.io/badge/CORE-ACTIVE-00ff00?style=for-the-badge) ![Cybersec](https://img.shields.io/badge/OPS-OFFENSIVE-ff0000?style=for-the-badge) ![Python](https://img.shields.io/badge/SYS-PYTHON_3.10-0000ff?style=for-the-badge)
 
