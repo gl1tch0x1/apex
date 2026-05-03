@@ -1,10 +1,18 @@
-```text
- ▄▀█ █▀█ █▀▀ ▀▄▀
- █▀█ █▀▀ ██▄ █░█
-```
+<div align="center">
 
-# A P E X  // Advanced Web Application Security Scanner
-### [Version: 2.1.0-alpha] // [Status: WEAPONIZED]
+<pre>
+    _   ___ _______  __
+   / \ | _ \ __\ \/ /
+  / _ \|  _/ _| >  < 
+ /_/ \_\_| |___/_/\_\
+</pre>
+
+<h1>A P E X</h1>
+<h3>Advanced Web Application Security Scanner</h3>
+
+<code>[Version: 2.1.0-alpha]</code>  |  <code>[Status: WEAPONIZED]</code>
+
+</div>
 
 ![Apex Core](https://img.shields.io/badge/CORE-ACTIVE-00ff00?style=for-the-badge) ![Cybersec](https://img.shields.io/badge/OPS-OFFENSIVE-ff0000?style=for-the-badge) ![Python](https://img.shields.io/badge/SYS-PYTHON_3.10-0000ff?style=for-the-badge)
 
