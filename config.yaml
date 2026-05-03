@@ -1,0 +1,112 @@
+timeout: 30
+concurrency: 12
+distributed: false
+api_hunt: true
+report_dir: reports
+
+http:
+  verify_ssl: true
+  per_host_min_interval: 0.06
+
+recon:
+  max_endpoints: 500
+  paths:
+    - ""
+    - "/api"
+    - "/api/v1"
+    - "/v1"
+    - "/v2"
+    - "/graphql"
+    - "/graphiql"
+    - "/altair"
+    - "/playground"
+    - "/swagger-ui.html"
+    - "/swagger-ui/"
+    - "/admin"
+    - "/login"
+    - "/register"
+    - "/health"
+    - "/status"
+    - "/ready"
+    - "/docs"
+    - "/redoc"
+
+sql:
+  param: id
+  time_blind: true
+  sleep_payload: "' OR SLEEP(2)-- "
+
+modules:
+  - domxss
+  - sql_injection
+  - xss_reflected
+  - broken_auth
+  - sensitive_data
+  - xxe
+  - broken_access
+  - misconfig
+  - insecure_deserialization
+  - known_vulns
+  - graphql
+  - jwt
+  - idor
+  - ssrf
+  - open_redirect
+  - path_traversal
+  - csrf
+  - file_upload
+  - security_headers
+  - api_rate_limit
+  - api_mass_assignment
+  - ssti
+  - lfi
+  - rce
+  - cors_misconfiguration
+  - crlf_injection
+  - prototype_pollution
+  - subdomain_takeover
+  - http_request_smuggling
+
+payloads:
+  xss: 120
+  sql: 50
+  jwt: 4
+
+autopilot:
+  enabled: false
+  phases: ["recon", "scope", "scan", "cve", "triage", "report"]
+
+tools:
+  enable_all: false
+  enabled: []
+  
+broken_auth:
+  login_path: /login
+
+idor_max_id: 25
+xss_param: q
+
+ssti:
+  probe_limit: 10
+  params: ["q", "search", "name", "message", "title", "content", "query", "input"]
+
+rate_limit:
+  burst: 25
+
+llm:
+  model: gpt-4o-mini
+  api_key_env: OPENAI_API_KEY
+
+interactsh:
+  enabled: true
+  server: interactsh.com
+
+swagger:
+  endpoints: []
+
+graphql:
+  introspection: true
+
+logging:
+  level: INFO
+  file: apex.log

@@ -1,0 +1,65 @@
+# Apex security workflow — recon feeds module scanner; analysis enriches findings.
+
+name: "apex_security_scan"
+version: "3.0"
+description: "Reconnaissance → module scan → LLM analysis → exploit chains → report"
+
+inputs:
+  target: ""
+  modules: []
+  config: {}
+
+steps:
+  - name: "reconnaissance"
+    type: "task"
+    description: "OpenAPI discovery, path enumeration, technology fingerprint"
+    task_type: "full_reconnaissance"
+    payload:
+      task_type: "full_reconnaissance"
+      target: "${inputs.target}"
+      api_hunt: "${inputs.config.api_hunt}"
+
+  - name: "vulnerability_scanning"
+    type: "task"
+    description: "OWASP-aligned module execution across discovered endpoints"
+    dependencies: ["reconnaissance"]
+    task_type: "module_scan"
+    payload:
+      task_type: "module_scan"
+      target: "${inputs.target}"
+      endpoints: "${steps.reconnaissance.results.endpoints}"
+      modules: "${inputs.modules}"
+      config: "${inputs.config}"
+
+  - name: "analysis_phase"
+    type: "task"
+    description: "LLM severity and remediation enrichment"
+    dependencies: ["vulnerability_scanning"]
+    task_type: "llm_analysis"
+    payload:
+      task_type: "llm_analysis"
+      findings: "${steps.vulnerability_scanning.results.findings}"
+      context: "${inputs.config}"
+
+  - name: "exploit_chain_analysis"
+    type: "task"
+    description: "Correlate findings into exploit narratives"
+    dependencies: ["analysis_phase"]
+    task_type: "exploit_chain_detection"
+    payload:
+      task_type: "exploit_chain_detection"
+      findings: "${steps.vulnerability_scanning.results.findings}"
+      target: "${inputs.target}"
+
+  - name: "report_generation"
+    type: "task"
+    description: "JSON report with OWASP mapping and tool hints"
+    dependencies: ["exploit_chain_analysis"]
+    task_type: "generate_report"
+    payload:
+      task_type: "generate_report"
+      target: "${inputs.target}"
+      findings: "${steps.analysis_phase.results.analyzed_findings}"
+      exploit_chains: "${steps.exploit_chain_analysis.results.exploit_chains}"
+      oast_data: {}
+      config: "${inputs.config}"

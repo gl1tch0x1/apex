@@ -1,0 +1,6 @@
+aiohttp
+playwright
+PyJWT
+pyyaml
+simpleeval
+rich

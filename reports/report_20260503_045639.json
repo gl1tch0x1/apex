@@ -1,0 +1,137 @@
+{
+  "target": "https://example.com",
+  "timestamp": "2026-05-03T04:56:39.605437Z",
+  "summary": {
+    "counts": {},
+    "total_findings": 0
+  },
+  "findings": [],
+  "exploit_chains": [],
+  "tools": {
+    "available": {
+      "Recon": [],
+      "Scanning": [],
+      "Exploitation": [],
+      "API": []
+    },
+    "recommended": {
+      "Recon": [
+        "amass",
+        "subfinder",
+        "httpx",
+        "assetfinder"
+      ],
+      "Scanning": [
+        "nuclei",
+        "sqlmap",
+        "nikto",
+        "gobuster",
+        "dirb"
+      ],
+      "Exploitation": [
+        "metasploit",
+        "msfconsole",
+        "sqlmap",
+        "burpsuite"
+      ],
+      "API": [
+        "postman",
+        "insomnia",
+        "httpie"
+      ]
+    }
+  },
+  "configuration": {
+    "timeout": 30,
+    "concurrency": 12,
+    "distributed": false,
+    "api_hunt": false,
+    "report_dir": "reports",
+    "http": {
+      "verify_ssl": true,
+      "per_host_min_interval": 0.06
+    },
+    "recon": {
+      "max_endpoints": 500,
+      "paths": [
+        "",
+        "/api",
+        "/api/v1",
+        "/v1",
+        "/v2",
+        "/graphql",
+        "/graphiql",
+        "/altair",
+        "/playground",
+        "/swagger-ui.html",
+        "/swagger-ui/",
+        "/admin",
+        "/login",
+        "/register",
+        "/health",
+        "/status",
+        "/ready",
+        "/docs",
+        "/redoc"
+      ]
+    },
+    "sql": {
+      "param": "id",
+      "time_blind": true,
+      "sleep_payload": "' OR SLEEP(2)-- "
+    },
+    "modules": [
+      "domxss",
+      "sql_injection",
+      "xss_reflected",
+      "broken_auth",
+      "sensitive_data",
+      "xxe",
+      "broken_access",
+      "misconfig",
+      "insecure_deserialization",
+      "known_vulns",
+      "graphql",
+      "jwt",
+      "idor",
+      "ssrf",
+      "open_redirect",
+      "path_traversal",
+      "csrf",
+      "file_upload"
+    ],
+    "payloads": {
+      "xss": 120,
+      "sql": 50,
+      "jwt": 4
+    },
+    "broken_auth": {
+      "login_path": "/login"
+    },
+    "idor_max_id": 25,
+    "xss_param": "q",
+    "llm": {
+      "model": "gpt-4o-mini",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+    "interactsh": {
+      "enabled": true,
+      "server": "interactsh.com"
+    },
+    "swagger": {
+      "endpoints": []
+    },
+    "graphql": {
+      "introspection": true
+    },
+    "logging": {
+      "level": "INFO",
+      "file": "apex.log"
+    }
+  },
+  "recommendations": [
+    {
+      "general": "Review findings and implement OWASP Top 10 remediation guidance for each issue."
+    }
+  ]
+}
