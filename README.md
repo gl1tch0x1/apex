@@ -1,6 +1,8 @@
 <h1>A P E X</h1>
 <h3>Advanced Web Application Security Scanner</h3>
 
+<img src="file_00000000e7e071fa8d3a00563a6c3189.png" alt="APEX Logo" width="420"/>
+
 <code>[Version: 2.1.0-alpha]</code>  |  <code>[Status: WEAPONIZED]</code>
 
 </div>
