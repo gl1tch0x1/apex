@@ -35,10 +35,10 @@ graph TD
     classDef agent fill:#0d1117,stroke:#ff0000,stroke-width:1px,color:#ff0000,font-family:monospace;
     classDef ext fill:#0d1117,stroke:#0000ff,stroke-width:1px,color:#0000ff,font-family:monospace;
 
-    USR[root@local] -->|execute| ORC[APEX_ORCHESTRATOR]:::sys
+    USR["root@local"] -->|execute| ORC[APEX_ORCHESTRATOR]:::sys
     
     subgraph APEX_NEURAL_NET
-        ORC -->|cache| MEM[(MEMORY_BANK)]:::sys
+        ORC -->|cache| MEM[("MEMORY_BANK")]:::sys
         ORC -->|task| SCN[APEX_SCANNER]:::sys
         SCN -->|vuln_data| ORC
         ORC -->|triage| ANZ[APEX_ANALYZER]:::sys
@@ -59,7 +59,7 @@ graph TD
         SCN --> OST[INTERACTSH]:::ext
     end
     
-    RPT -->|dump| JSON[REPORT.JSON]:::sys
+    RPT -->|dump| JSON["REPORT.JSON"]:::sys
 ```
 
 ---
