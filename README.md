@@ -1,12 +1,3 @@
-<div align="center">
-
-<pre>
-    _   ___ _______  __
-   / \ | _ \ __\ \/ /
-  / _ \|  _/ _| >  < 
- /_/ \_\_| |___/_/\_\
-</pre>
-
 <h1>A P E X</h1>
 <h3>Advanced Web Application Security Scanner</h3>
 
@@ -79,7 +70,7 @@ Bootstrapping the environment requires standard infosec prerequisites.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/apex.git
+git clone https://github.com/gl1tch0x1/apex
 cd apex
 
 # Install Python dependencies
